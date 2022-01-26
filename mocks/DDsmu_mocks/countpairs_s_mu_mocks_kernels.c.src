@@ -1221,12 +1221,14 @@ static inline int countpairs_s_mu_mocks_fallback_DOUBLE(const int64_t N0, DOUBLE
             // MODIFIED: 
             //const int mubin  = (sqr_mu >= sqr_mumax) ? nmu_bins:(int) (SQRT(sqr_mu)*inv_dmu);
             printf("s_dot_l = %f", s_dot_l);
+            int out_bin;
             if(s_dot_l > 0){
-              const int mubin  = (sqr_mu >= sqr_mumax) ? nmu_bins:(int) ((SQRT(sqr_mu) + mu_max)*inv_dmu);
+                out_bin = nmu_bins;
             }
             else{
-              const int mubin  = (sqr_mu >= sqr_mumax) ? 0:(int) ((SQRT(sqr_mu) + mu_max)*inv_dmu);
+                out_bin = 0;
             }
+            const int mubin  = (sqr_mu >= sqr_mumax) ? out_bin:(int) ((SQRT(sqr_mu) + mu_max)*inv_dmu);
             DOUBLE s = ZERO, pairweight = ZERO;
             if(need_savg) {
                 s = SQRT(sqr_s);
