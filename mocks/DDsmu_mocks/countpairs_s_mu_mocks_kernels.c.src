@@ -660,13 +660,17 @@ static inline int countpairs_s_mu_mocks_avx_intrinsics_DOUBLE(const int64_t N0, 
             // MODIFIED: 
             // const int mubin  = (sqr_mu >= sqr_mumax) ? nmu_bins:(int) (SQRT(sqr_mu)*inv_dmu);
             int out_bin;
+            double mu_sign;
             if(s_dot_l > 0){
                 out_bin = nmu_bins;
+                mu_sign = 1.;
             }
             else{
                 out_bin = 0;
+                mu_sign = -1.;
             }
-            const int mubin  = (sqr_mu >= sqr_mumax) ? out_bin:(int) ((SQRT(sqr_mu) + mu_max)*inv_dmu);
+            const int mubin  = (sqr_mu >= sqr_mumax) ? out_bin:(int) ((mu_sign*SQRT(sqr_mu) + mu_max)*inv_dmu);
+            printf("mubin = %d, mu = %f, mu_sign = %f, mu_max = %f\n", mubin, SQRT(sqr_mu), mu_sign, mu_max);
           
             DOUBLE s = ZERO, pairweight = ZERO;
             if(need_savg) {
@@ -1031,13 +1035,17 @@ static inline int countpairs_s_mu_mocks_sse_intrinsics_DOUBLE(const int64_t N0, 
             // MODIFIED: 
             // const int mubin  = (sqr_mu >= sqr_mumax) ? nmu_bins:(int) (SQRT(sqr_mu)*inv_dmu);
             int out_bin;
+            double mu_sign;
             if(s_dot_l > 0){
                 out_bin = nmu_bins;
+                mu_sign = 1.;
             }
             else{
                 out_bin = 0;
+                mu_sign = -1.;
             }
-            const int mubin  = (sqr_mu >= sqr_mumax) ? out_bin:(int) ((SQRT(sqr_mu) + mu_max)*inv_dmu);
+            const int mubin  = (sqr_mu >= sqr_mumax) ? out_bin:(int) ((mu_sign*SQRT(sqr_mu) + mu_max)*inv_dmu);
+            printf("mubin = %d, mu = %f, mu_sign = %f, mu_max = %f\n", mubin, SQRT(sqr_mu), mu_sign, mu_max);
           
             DOUBLE s = ZERO, pairweight = ZERO;
             if(need_savg) {
@@ -1246,13 +1254,18 @@ static inline int countpairs_s_mu_mocks_fallback_DOUBLE(const int64_t N0, DOUBLE
             // MODIFIED: 
             //const int mubin  = (sqr_mu >= sqr_mumax) ? nmu_bins:(int) (SQRT(sqr_mu)*inv_dmu);
             int out_bin;
+            double mu_sign;
             if(s_dot_l > 0){
                 out_bin = nmu_bins;
+                mu_sign = 1.;
             }
             else{
                 out_bin = 0;
+                mu_sign = -1.;
             }
-            const int mubin  = (sqr_mu >= sqr_mumax) ? out_bin:(int) ((SQRT(sqr_mu) + mu_max)*inv_dmu);
+            const int mubin  = (sqr_mu >= sqr_mumax) ? out_bin:(int) ((mu_sign*SQRT(sqr_mu) + mu_max)*inv_dmu);
+            printf("mubin = %d, mu = %f, mu_sign = %f, mu_max = %f\n", mubin, SQRT(sqr_mu), mu_sign, mu_max);
+          
             DOUBLE s = ZERO, pairweight = ZERO;
             if(need_savg) {
                 s = SQRT(sqr_s);
