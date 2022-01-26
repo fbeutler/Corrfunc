@@ -36,7 +36,7 @@ static inline int countpairs_s_mu_mocks_avx512_intrinsics_DOUBLE(const int64_t N
                                                                  DOUBLE *src_savg,
                                                                  uint64_t *src_npairs, DOUBLE *src_weightavg, const weight_method_t weight_method)
 {
-
+    printf("calling countpairs_s_mu_mocks_avx512_intrinsics_DOUBLE");
     if(N0 == 0 || N1 == 0) {
         return EXIT_SUCCESS;
     }
@@ -343,6 +343,7 @@ static inline int countpairs_s_mu_mocks_avx_intrinsics_DOUBLE(const int64_t N0, 
                                                               DOUBLE *src_savg,
                                                               uint64_t *src_npairs, DOUBLE *src_weightavg, const weight_method_t weight_method)
 {
+    printf("calling countpairs_s_mu_mocks_avx_intrinsics_DOUBLE");
     if(N0 == 0 || N1 == 0) {
         return EXIT_SUCCESS;
     }
@@ -718,6 +719,7 @@ static inline int countpairs_s_mu_mocks_sse_intrinsics_DOUBLE(const int64_t N0, 
                                                               DOUBLE *src_savg, uint64_t *src_npairs,
                                                               DOUBLE *src_weightavg, const weight_method_t weight_method)
 {
+    printf("calling countpairs_s_mu_mocks_sse_intrinsics_DOUBLE");
     if(N0 == 0 || N1 == 0) {
         return EXIT_SUCCESS;
     }
@@ -1075,6 +1077,8 @@ static inline int countpairs_s_mu_mocks_fallback_DOUBLE(const int64_t N0, DOUBLE
                                                         DOUBLE *src_savg, uint64_t *src_npairs,
                                                         DOUBLE *src_weightavg, const weight_method_t weight_method)
 {
+  
+    printf("calling countpairs_s_mu_mocks_fallback_DOUBLE");
     if(N0 == 0 || N1 == 0) {
         return EXIT_SUCCESS;
     }
