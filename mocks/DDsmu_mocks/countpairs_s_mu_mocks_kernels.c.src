@@ -1231,6 +1231,12 @@ static inline int countpairs_s_mu_mocks_fallback_DOUBLE(const int64_t N0, DOUBLE
             const DOUBLE parx = xpos + *localx1;
             const DOUBLE pary = ypos + *localy1;
             const DOUBLE parz = zpos + *localz1;
+            
+            // MODIFIED: 
+            // To get the end-point LOS use this
+            //const DOUBLE parx = xpos;
+            //const DOUBLE pary = ypos;
+            //const DOUBLE parz = zpos;
 
             const DOUBLE perpx = *localx1++ - xpos;
             const DOUBLE perpy = *localy1++ - ypos;
